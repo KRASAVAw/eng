@@ -508,7 +508,6 @@
             wordCountSlider.style.background = `linear-gradient(to right, var(--primary-color) ${percentage}%, var(--border-color) ${percentage}%)`;
         }
 
-
         function handleActionClick() {
             if (gameState === 'answering') {
                 checkAnswer();
@@ -520,10 +519,17 @@
         
         document.addEventListener('keyup', function(event) {
             if (event.key !== 'Enter') return;
-            if (!gameView.classList.contains('hidden-view')) {
-                if (gameState === 'answering' && document.activeElement === answerInput) {
-                    handleActionClick();
-                } else if (gameState === 'reviewing') {
+            if (gameView.classList.contains('hidden-view')) return;
+
+            if (gameState === 'reviewing') {
+                handleActionClick();
+            }
+        });
+
+        answerInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                if (gameState === 'answering') {
                     handleActionClick();
                 }
             }
