@@ -408,13 +408,10 @@
             const level = levelSelect.value;
             const fullWordList = [...wordDatabase[level]];
             const desiredCount = parseInt(wordCountSlider.value, 10);
-            
             const sessionWordCount = Math.min(desiredCount, fullWordList.length);
-            
             shuffledWords = shuffleArray(fullWordList).slice(0, sessionWordCount);
             totalWordsInSession = shuffledWords.length;
             totalWordNumberElem.textContent = totalWordsInSession;
-            
             correctCount = 0; incorrectCount = 0;
             updateScore();
             switchView(gameView);
@@ -426,21 +423,17 @@
                 switchView(levelCompleteView);
                 return;
             }
-            
             resetForNextRound();
-            
             const wordPair = shuffledWords.pop();
             currentWordNumberElem.textContent = totalWordsInSession - shuffledWords.length;
             const mode = modeSelect.value === 'mixed' ? (Math.random() < 0.5 ? 'en-ru' : 'ru-en') : modeSelect.value;
-
             if (mode === 'en-ru') {
                 wordToTranslateElem.textContent = wordPair.en;
                 currentWord = { source: wordPair.en, answer: wordPair.ru, displayAnswer: wordPair.ru.join(', ') };
             } else {
-                wordToTranslateElem.textContent = wordPair.ru[0]; // Show the first Russian word
+                wordToTranslateElem.textContent = wordPair.ru[0];
                 currentWord = { source: wordPair.ru[0], answer: [wordPair.en], displayAnswer: wordPair.en };
             }
-            
             requestAnimationFrame(() => {
                 wordToTranslateElem.style.opacity = '1';
             });
@@ -449,9 +442,7 @@
         function checkAnswer() {
             const userAnswer = answerInput.value.trim().toLowerCase();
             if (!userAnswer) return;
-
             const correctAnswers = currentWord.answer.map(a => a.toLowerCase());
-            
             if (correctAnswers.includes(userAnswer)) {
                 correctCount++;
                 feedbackElem.innerHTML = `✅ Правильно! Возможные переводы: <strong>${currentWord.displayAnswer}</strong>`;
@@ -466,10 +457,8 @@
                 setTimeout(() => answerInput.classList.remove('shake-animation'), 500);
                 animateScore(scoreIncorrectElem);
             }
-            
             animateScore(scoreTotalElem);
             updateScore();
-            
             gameState = 'reviewing';
             answerInput.disabled = true;
             actionButton.textContent = 'Следующее слово';
@@ -517,24 +506,24 @@
             }
         }
         
-        document.addEventListener('keyup', function(event) {
+        // --- KEYBOARD FIX ---
+        document.addEventListener('keydown', function(event) {
             if (event.key !== 'Enter') return;
             if (gameView.classList.contains('hidden-view')) return;
 
-            if (gameState === 'reviewing') {
+            event.preventDefault(); // Prevent default browser actions like form submission or button clicks
+
+            if (gameState === 'answering') {
+                // Trigger only if the input is focused
+                if (document.activeElement === answerInput) {
+                    handleActionClick();
+                }
+            } else if (gameState === 'reviewing') {
                 handleActionClick();
             }
         });
 
-        answerInput.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                if (gameState === 'answering') {
-                    handleActionClick();
-                }
-            }
-        });
-
+        // Event Listeners for mouse clicks
         startButton.addEventListener('click', startGame);
         backButton.addEventListener('click', returnToMenu);
         restartButton.addEventListener('click', returnToMenu);
