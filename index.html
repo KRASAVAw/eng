@@ -102,6 +102,12 @@
             transition: all 0.25s ease-out;
         }
 
+        select:disabled {
+            background-color: #f8f8f8;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         select:focus, input:focus {
             outline: none; border-color: var(--primary-color);
             box-shadow: 0 0 0 4px rgba(244, 114, 182, 0.2);
@@ -194,6 +200,8 @@
                     <option value="en-ru">Английский -> Русский</option>
                     <option value="ru-en">Русский -> Английский</option>
                     <option value="mixed">Смешанный</option>
+                    <!-- --- NEW --- Animal theme option -->
+                    <option value="animals">Тема: Животные</option>
                 </select>
             </div>
             <div class="setting-group">
@@ -360,6 +368,38 @@
                 {en:"burgeon",ru:["расцветать", "расти"]}, {en:"burnish",ru:["полировать", "начищать"]}, {en:"buttress",ru:["поддерживать", "опора"]}, {en:"byzantine",ru:["византийский", "сложный"]}, {en:"cabal",ru:["клик", "заговор"]},
                 {en:"cachinnate",ru:["хохотать", "гоготать"]}, {en:"cajole",ru:["задабривать", "упрашивать"]}, {en:"callous",ru:["черствый", "бездушный"]}, {en:"calumny",ru:["клевета"]}, {en:"canard",ru:["утка", "ложный слух"]},
                 {en:"capitulate",ru:["капитулировать", "сдаваться"]}, {en:"capricious",ru:["капризный", "непостоянный"]}, {en:"captious",ru:["придирчивый", "коварный"]}
+            ],
+            // --- NEW --- Animal database
+                        animals: [
+                {en:"alligator",ru:["аллигатор"]}, {en:"alpaca",ru:["альпака"]}, {en:"ant",ru:["муравей"]}, {en:"anteater",ru:["муравьед"]}, {en:"antelope",ru:["антилопа"]},
+                {en:"badger",ru:["барсук"]}, {en:"bat",ru:["летучая мышь"]}, {en:"bear",ru:["медведь", "мишка"]}, {en:"beaver",ru:["бобер", "бобр"]}, {en:"bee",ru:["пчела"]},
+                {en:"beetle",ru:["жук"]}, {en:"bird",ru:["птица", "птичка"]}, {en:"bison",ru:["бизон", "зубр"]}, {en:"boar",ru:["кабан", "вепрь"]}, {en:"bug",ru:["жук", "клоп"]},
+                {en:"bull",ru:["бык"]}, {en:"butterfly",ru:["бабочка", "мотылек"]}, {en:"camel",ru:["верблюд"]}, {en:"cat",ru:["кот", "кошка"]}, {en:"caterpillar",ru:["гусеница"]},
+                {en:"cheetah",ru:["гепард"]}, {en:"chicken",ru:["курица", "цыпленок"]}, {en:"chimpanzee",ru:["шимпанзе"]}, {en:"chinchilla",ru:["шиншилла"]}, {en:"clam",ru:["моллюск"]},
+                {en:"cockroach",ru:["таракан"]}, {en:"cow",ru:["корова"]}, {en:"coyote",ru:["койот"]}, {en:"crab",ru:["краб"]}, {en:"crane",ru:["журавль"]},
+                {en:"cricket",ru:["сверчок"]}, {en:"crocodile",ru:["крокодил"]}, {en:"crow",ru:["ворона"]}, {en:"deer",ru:["олень"]}, {en:"dog",ru:["собака", "пес"]},
+                {en:"dolphin",ru:["дельфин"]}, {en:"donkey",ru:["осел", "ишак"]}, {en:"dove",ru:["голубь"]}, {en:"dragonfly",ru:["стрекоза"]}, {en:"duck",ru:["утка"]},
+                {en:"eagle",ru:["орел"]}, {en:"eel",ru:["угорь"]}, {en:"elephant",ru:["слон"]}, {en:"elk",ru:["лось"]}, {en:"ferret",ru:["хорек"]},
+                {en:"finch",ru:["зяблик"]}, {en:"fish",ru:["рыба"]}, {en:"flamingo",ru:["фламинго"]}, {en:"fly",ru:["муха"]}, {en:"fox",ru:["лиса", "лисица"]},
+                {en:"frog",ru:["лягушка"]}, {en:"giraffe",ru:["жираф"]}, {en:"goat",ru:["коза", "козел"]}, {en:"goldfish",ru:["золотая рыбка"]}, {en:"goose",ru:["гусь"]},
+                {en:"gorilla",ru:["горилла"]}, {en:"grasshopper",ru:["кузнечик"]}, {en:"guinea pig",ru:["морская свинка"]}, {en:"hamster",ru:["хомяк"]}, {en:"hare",ru:["заяц"]},
+                {en:"hawk",ru:["ястреб", "сокол"]}, {en:"hedgehog",ru:["еж", "ёжик"]}, {en:"hen",ru:["курица", "наседка"]}, {en:"heron",ru:["цапля"]}, {en:"hippo",ru:["бегемот", "гиппопотам"]},
+                {en:"hornet",ru:["шершень"]}, {en:"horse",ru:["лошадь", "конь"]}, {en:"hummingbird",ru:["колибри"]}, {en:"hyena",ru:["гиена"]}, {en:"jellyfish",ru:["медуза"]},
+                {en:"kangaroo",ru:["кенгуру"]}, {en:"koala",ru:["коала"]}, {en:"ladybug",ru:["божья коровка"]}, {en:"leopard",ru:["леопард"]}, {en:"lion",ru:["лев"]},
+                {en:"lizard",ru:["ящерица"]}, {en:"llama",ru:["лама"]}, {en:"lobster",ru:["лобстер", "омар"]}, {en:"mole",ru:["крот"]}, {en:"monkey",ru:["обезьяна"]},
+                {en:"moose",ru:["лось"]}, {en:"mosquito",ru:["комар", "москит"]}, {en:"moth",ru:["моль", "мотылек"]}, {en:"mouse",ru:["мышь"]}, {en:"octopus",ru:["осьминог"]},
+                {en:"ostrich",ru:["страус"]}, {en:"otter",ru:["выдра"]}, {en:"owl",ru:["сова", "филин"]}, {en:"ox",ru:["вол", "бык"]}, {en:"panda",ru:["панда"]},
+                {en:"panther",ru:["пантера"]}, {en:"parrot",ru:["попугай"]}, {en:"peacock",ru:["павлин"]}, {en:"pelican",ru:["пеликан"]}, {en:"penguin",ru:["пингвин"]},
+                {en:"pig",ru:["свинья", "поросенок"]}, {en:"pigeon",ru:["голубь"]}, {en:"platypus",ru:["утконос"]}, {en:"polar bear",ru:["белый медведь"]}, {en:"pony",ru:["пони"]},
+                {en:"poodle",ru:["пудель"]}, {en:"porcupine",ru:["дикобраз"]}, {en:"rabbit",ru:["кролик", "зайчик"]}, {en:"raccoon",ru:["енот"]}, {en:"rat",ru:["крыса"]},
+                {en:"raven",ru:["ворон"]}, {en:"reindeer",ru:["северный олень"]}, {en:"rhino",ru:["носорог"]}, {en:"rooster",ru:["петух"]}, {en:"salmon",ru:["лосось", "семга"]},
+                {en:"scorpion",ru:["скорпион"]}, {en:"seagull",ru:["чайка"]}, {en:"seahorse",ru:["морской конек"]}, {en:"seal",ru:["тюлень", "морской котик"]}, {en:"shark",ru:["акула"]},
+                {en:"sheep",ru:["овца", "овечка"]}, {en:"shrimp",ru:["креветка"]}, {en:"skunk",ru:["скунс"]}, {en:"sloth",ru:["ленивец"]}, {en:"snail",ru:["улитка"]},
+                {en:"snake",ru:["змея"]}, {en:"sparrow",ru:["воробей"]}, {en:"spider",ru:["паук"]}, {en:"squid",ru:["кальмар"]}, {en:"squirrel",ru:["белка"]},
+                {en:"starfish",ru:["морская звезда"]}, {en:"stork",ru:["аист"]}, {en:"swan",ru:["лебедь"]}, {en:"tiger",ru:["тигр"]}, {en:"toad",ru:["жаба"]},
+                {en:"tortoise",ru:["сухопутная черепаха", "черепаха"]}, {en:"tuna",ru:["тунец"]}, {en:"turkey",ru:["индейка", "индюк"]}, {en:"turtle",ru:["черепаха"]}, {en:"walrus",ru:["морж"]},
+                {en:"wasp",ru:["оса"]}, {en:"whale",ru:["кит"]}, {en:"wolf",ru:["волк"]}, {en:"woodpecker",ru:["дятел"]}, {en:"worm",ru:["червяк", "червь"]},
+                {en:"zebra",ru:["зебра"]}
             ]
         };
 
@@ -405,13 +445,24 @@
         }
 
         function startGame() {
+            const mode = modeSelect.value;
             const level = levelSelect.value;
-            const fullWordList = [...wordDatabase[level]];
+            let fullWordList;
+
+            // --- CHANGE --- Select word list based on mode
+            if (mode === 'animals') {
+                fullWordList = [...wordDatabase.animals];
+            } else {
+                fullWordList = [...wordDatabase[level]];
+            }
+            
             const desiredCount = parseInt(wordCountSlider.value, 10);
             const sessionWordCount = Math.min(desiredCount, fullWordList.length);
             shuffledWords = shuffleArray(fullWordList).slice(0, sessionWordCount);
+            
             totalWordsInSession = shuffledWords.length;
             totalWordNumberElem.textContent = totalWordsInSession;
+            
             correctCount = 0; incorrectCount = 0;
             updateScore();
             switchView(gameView);
@@ -426,14 +477,23 @@
             resetForNextRound();
             const wordPair = shuffledWords.pop();
             currentWordNumberElem.textContent = totalWordsInSession - shuffledWords.length;
-            const mode = modeSelect.value === 'mixed' ? (Math.random() < 0.5 ? 'en-ru' : 'ru-en') : modeSelect.value;
-            if (mode === 'en-ru') {
+            
+            // --- CHANGE --- Determine effective mode for translation direction
+            let effectiveMode = modeSelect.value;
+            if (effectiveMode === 'animals') {
+                effectiveMode = 'en-ru'; // Animal theme is always English to Russian
+            } else if (effectiveMode === 'mixed') {
+                effectiveMode = Math.random() < 0.5 ? 'en-ru' : 'ru-en';
+            }
+
+            if (effectiveMode === 'en-ru') {
                 wordToTranslateElem.textContent = wordPair.en;
                 currentWord = { source: wordPair.en, answer: wordPair.ru, displayAnswer: wordPair.ru.join(', ') };
-            } else {
+            } else { // ru-en
                 wordToTranslateElem.textContent = wordPair.ru[0];
                 currentWord = { source: wordPair.ru[0], answer: [wordPair.en], displayAnswer: wordPair.en };
             }
+            
             requestAnimationFrame(() => {
                 wordToTranslateElem.style.opacity = '1';
             });
@@ -514,7 +574,6 @@
             event.preventDefault(); // Prevent default browser actions like form submission or button clicks
 
             if (gameState === 'answering') {
-                // Trigger only if the input is focused
                 if (document.activeElement === answerInput) {
                     handleActionClick();
                 }
@@ -522,6 +581,11 @@
                 handleActionClick();
             }
         });
+        
+        // --- NEW --- Disable level select when animal theme is chosen
+        function toggleLevelSelect() {
+            levelSelect.disabled = (modeSelect.value === 'animals');
+        }
 
         // Event Listeners for mouse clicks
         startButton.addEventListener('click', startGame);
@@ -529,8 +593,11 @@
         restartButton.addEventListener('click', returnToMenu);
         actionButton.addEventListener('click', handleActionClick);
         wordCountSlider.addEventListener('input', updateSlider);
-        levelSelect.addEventListener('change', updateSlider); 
-        document.addEventListener('DOMContentLoaded', updateSlider);
+        modeSelect.addEventListener('change', toggleLevelSelect); 
+        document.addEventListener('DOMContentLoaded', () => {
+            updateSlider();
+            toggleLevelSelect();
+        });
     </script>
 </body>
 </html>
